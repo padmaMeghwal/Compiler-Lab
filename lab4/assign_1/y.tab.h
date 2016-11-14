@@ -1,0 +1,9 @@
+#define NUMBER 257
+#define LAST 258
+#define NEGATIVE 259
+#define COS 260
+#define EXP 261
+#define SIN 262
+#define SQRT 263
+#define TAN 264
+#define LOG 265
