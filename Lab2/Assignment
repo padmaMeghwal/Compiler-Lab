@@ -1,0 +1,77 @@
+1. Write a lex program to extract all the tokens from a C program and make an entry to symbol table. Also, replace all the tokens with their respective symbol table entry in following form <index, token, value>. As an output you should print both the modified program and symbol table.
+
+For eg:
+Input
+============
+main()
+{
+	int a = 10;
+	int b = 5;
+	int c = 0;
+	c = a + b;
+	printf("%d", c);
+}
+
+
+Output
+======
+<0,ID,-><1,LBRACE,-><2,RBRACE,->
+<3,LBRACE,->
+<4,KEYWORD,-> <5,ID,10> <6,EQ,-> <7,NUM,-><8,SEMICOLON,->
+
+..
+
+..
+..
+<16,RBRACE,->
+
+
+
+Symbol table:
+
+Index	Text	Token		Value 
+----------------------------------------
+0		main	ID
+1		(		LBRACE
+2		) 		RBRACE
+3		{		LBRACE
+4		int		KEYWORD
+5		a		ID			10
+6		=		EQ
+7		10		NUM
+8		;		SEMICOLON
+9		b		ID			5
+10		5		NUM	
+11		c		ID			0
+12		0		NUM
+13		+		PLUS
+14		printf	ID
+15		"%d"	STRING
+16		,		COMMA
+17		}		RBRACE
+
+
+
+=============================================================================
+
+2.Write a lex program to extract text between start tag and end tag of a given tag.
+for example:
+## content of the file 
+<html>
+	<head>
+	</head>
+	<body>	
+		<h1> hello world</h1>
+		another line
+		<p> something here </p>
+	</body>
+	
+</html>
+
+## if tag is "body" then ouput should be as below
+<h1> hello world</h1>
+another line
+<p> something here </p>
+
+## if tag is "h1" then ouput should be as below
+hello world
